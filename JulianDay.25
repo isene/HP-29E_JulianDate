@@ -1,0 +1,83 @@
+Gregorian Date to Julian Date converter. Adapted from the HP-41 Solutions Book, "Calendars".
+
+This is the Julian Day Number for the beginning of the date in question at 0 hours, Greenwich time. Note that this always gives you a half day extra. That is because the Julian Day begins at noon, Greenwich time. This is convenient for astronomers (who until recently only observed at night), but it is confusing.
+
+DD   = REG 1
+MM   = REG 2
+YYYY = REG 3
+
+001 LBL 0
+002 INT
+003 STO 1
+004 LASTX 
+005 FRC
+006 EEX
+007 2
+008 *
+009 INT
+010 STO 2
+011 LASTX
+012 FRC 
+013 EEX
+014 4
+015 *
+016 STO 3
+017 2
+018 RCL 2
+019 X>Y
+020 GTO 1
+021 1
+022 ST- 3
+023 1
+024 2
+025 ST+ 2
+026 LBL 1
+027 1
+028 ST+ 2
+029 RCL 3
+030 3
+031 6
+032 5
+033 .
+034 2
+035 5
+036 *
+037 INT
+038 3
+039 0
+040 .
+041 6
+042 0
+043 0
+044 1
+045 RCL 2
+046 *
+047 INT
+048 +
+049 RCL 1 
+050 +
+051 1
+052 7
+053 2
+054 0
+055 9
+056 8
+057 2
+058 +
+059 STO 4
+060 LBL 2
+061 RCL 0
+062 ->H 
+063 2
+064 4
+065 /
+066 .
+067 5
+068 -
+069 RCL 4 
+070 + 
+071 PAUSE
+072 PAUSE 
+073 GTO 2 
+074 END
+ 
